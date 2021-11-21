@@ -52,7 +52,7 @@ const config = {
           declaration: true,
           declarationMap: true
         },
-        exclude: ['**/__TEST__', 'test-dts']
+        exclude: ['**/__tests__', 'test-dts']
       }
     })
   ]
