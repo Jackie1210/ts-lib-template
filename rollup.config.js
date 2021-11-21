@@ -12,7 +12,7 @@ import pkg from './package.json'
  * @returns
  */
 const resolve = (p) => path.resolve(__dirname, p)
-const name = camelCase(pkg.name) ?? 'index'
+const name = camelCase(pkg.name) || 'index'
 
 /**
  * @type { import('rollup').RollupOptions }
