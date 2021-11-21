@@ -1,0 +1,60 @@
+{
+  "name": "ts-lib",
+  "version": "0.0.0",
+  "description": "An minimal awesome typescript library",
+  "files": [
+    "dist"
+  ],
+  "author": "Lynn Chen<https://github.com/Jackie1210>",
+  "main": "./dist/ts-lib.js",
+  "module": "./dist/ts-lib.mjs",
+  "exports": {
+    "require": "./dist/ts-lib.js",
+    "import": "./dist/ts-lib.mjs"
+  },
+  "types": "./dist/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "src/**/*.ts": [
+      "eslint --ext .ts"
+    ]
+  },
+  "scripts": {
+    "preinstall": "node scripts/preinstall",
+    "dev": "rollup -wc",
+    "build": "rimraf dist && rollup -c",
+    "test": "jest",
+    "format": "prettier --write .",
+    "lint": "eslint src/**/*"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@swc-node/jest": "^1.4.1",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.9",
+    "chalk": "^4.1.2",
+    "eslint": "^8.3.0",
+    "eslint-define-config": "^1.1.4",
+    "jest": "^27.3.1",
+    "lint-staged": "^12.0.3",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.60.0",
+    "rollup-plugin-typescript2": "^0.31.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2",
+    "yorkie": "^2.0.0"
+  }
+}
