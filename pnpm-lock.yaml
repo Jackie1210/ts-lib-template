@@ -8,6 +8,7 @@ specifiers:
   '@types/node': ^18.11.17
   '@typescript-eslint/eslint-plugin': ^5.47.0
   '@typescript-eslint/parser': ^5.47.0
+  esbuild: ^0.16.10
   eslint: ^8.30.0
   eslint-define-config: ^1.12.0
   lint-staged: ^13.1.0
@@ -15,6 +16,7 @@ specifiers:
   rimraf: ^3.0.2
   rollup: ^3.7.5
   rollup-plugin-dts: ^5.0.0
+  rollup-plugin-esbuild: ^5.0.0
   rollup-plugin-typescript2: ^0.34.1
   simple-git-hooks: ^2.8.1
   tsx: ^3.12.1
@@ -29,6 +31,7 @@ devDependencies:
   '@types/node': 18.11.17
   '@typescript-eslint/eslint-plugin': 5.47.0_ncmi6noazr3nzas7jxykisekym
   '@typescript-eslint/parser': 5.47.0_lzzuuodtsqwxnvqeq4g4likcqa
+  esbuild: 0.16.10
   eslint: 8.30.0
   eslint-define-config: 1.12.0
   lint-staged: 13.1.0
@@ -36,6 +39,7 @@ devDependencies:
   rimraf: 3.0.2
   rollup: 3.7.5
   rollup-plugin-dts: 5.0.0_oj4jlwi3mkekxo3vucumcwebnq
+  rollup-plugin-esbuild: 5.0.0_wzqc5fpdsdncvbpcjrdwzvk52i
   rollup-plugin-typescript2: 0.34.1_oj4jlwi3mkekxo3vucumcwebnq
   simple-git-hooks: 2.8.1
   tsx: 3.12.1
@@ -913,6 +917,10 @@ packages:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
 
+  /es-module-lexer/1.1.0:
+    resolution: {integrity: sha512-fJg+1tiyEeS8figV+fPcPpm8WqJEflG3yPU0NOm5xMvrNkuiy7HzX/Ljng4Y0hAoiw4/3hQTCFYw+ub8+a2pRA==}
+    dev: true
+
   /esbuild-android-64/0.15.18:
     resolution: {integrity: sha512-wnpt3OXRhcjfIDSZu9bnzT4/TNTDsOUvip0foZOUBG7QbSt//w3QV4FInVJxNhKc/ErhUxc5z4QjHtMi7/TbgA==}
     engines: {node: '>=12'}
@@ -1612,6 +1620,11 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
+  /joycon/3.1.1:
+    resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}
+    engines: {node: '>=10'}
+    dev: true
+
   /js-sdsl/4.2.0:
     resolution: {integrity: sha512-dyBIzQBDkCqCu+0upx25Y2jGdbTGxE9fshMsCdK0ViOongpV+n5tXRcZY9v7CaVQ79AGS9KA1KHtojxiM7aXSQ==}
     dev: true
@@ -2081,6 +2094,24 @@ packages:
       typescript: 4.9.4
     optionalDependencies:
       '@babel/code-frame': 7.18.6
+    dev: true
+
+  /rollup-plugin-esbuild/5.0.0_wzqc5fpdsdncvbpcjrdwzvk52i:
+    resolution: {integrity: sha512-1cRIOHAPh8WQgdQQyyvFdeOdxuiyk+zB5zJ5+YOwrZP4cJ0MT3Fs48pQxrZeyZHcn+klFherytILVfE4aYrneg==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    peerDependencies:
+      esbuild: '>=0.10.1'
+      rollup: ^1.20.0 || ^2.0.0 || ^3.0.0
+    dependencies:
+      '@rollup/pluginutils': 5.0.2_rollup@3.7.5
+      debug: 4.3.4
+      es-module-lexer: 1.1.0
+      esbuild: 0.16.10
+      joycon: 3.1.1
+      jsonc-parser: 3.2.0
+      rollup: 3.7.5
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /rollup-plugin-typescript2/0.34.1_oj4jlwi3mkekxo3vucumcwebnq:

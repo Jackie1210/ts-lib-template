@@ -8,6 +8,7 @@ import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import dts from 'rollup-plugin-dts'
+import esbuild from 'rollup-plugin-esbuild'
 
 const pkg = JSON.parse(fs.readFileSync(new URL('./package.json', import.meta.url), 'utf8'))
 const __dirname = path.join(fileURLToPath(import.meta.url), '..')
@@ -44,7 +45,11 @@ export default defineConfig([
       nodeResolve({
         preferBuiltins: true
       }),
-      ts()
+      ts(),
+      esbuild({
+        target: 'node16',
+        minify: true
+      })
     ]
   },
   {
