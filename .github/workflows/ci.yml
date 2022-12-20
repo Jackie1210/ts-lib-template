@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - feat/*
+      - fix/*
   pull_request:
 
 jobs:
@@ -13,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node_version: [12, 14, 16]
+        node_version: [14, 16]
         include:
           - os: macos-latest
             node_version: 16
@@ -28,7 +29,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.15.1
+          version: 7.18.1
 
       - name: Set node version to ${{ matrix.node_version }}
         uses: actions/setup-node@v2
@@ -43,29 +44,4 @@ jobs:
         run: pnpm build
 
       - name: Test
-        run: pnpm test
-
-  lint:
-    runs-on: ubuntu-latest
-    name: "Lint: node-16, ubuntu-latest"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 6.15.1
-
-      - name: Set node version to 14
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
-          cache: "pnpm"
-
-      - name: Install deps
-        run: pnpm install --registry=https://registry.npmmirror.com/
-
-      - name: Lint
-        run: pnpm lint
+        run: pnpm test:CI

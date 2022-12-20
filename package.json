@@ -2,6 +2,7 @@
   "name": "ts-lib",
   "version": "0.0.0",
   "description": "An minimal awesome typescript library",
+  "packageManager": "pnpm@7.18.1",
   "files": [
     "dist"
   ],
