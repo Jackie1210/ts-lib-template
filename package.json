@@ -31,7 +31,7 @@
     "dev": "rollup -wc",
     "build": "rimraf dist && rollup -c",
     "test": "vitest",
-    "vitest:CI": "vitest --no-threads"
+    "test:CI": "vitest --no-threads"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.0",
