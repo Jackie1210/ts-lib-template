@@ -10,8 +10,11 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "exports": {
-    "require": "./dist/index.mjs",
-    "import": "./dist/index.mjs"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
   },
   "types": "./dist/index.d.ts",
   "simple-git-hooks": {
@@ -30,6 +33,7 @@
     "preinstall": "npx only-allow pnpm",
     "dev": "rollup -wc",
     "build": "rimraf dist && rollup -c",
+    "coverage": "vitest run --coverage",
     "test": "vitest",
     "test:CI": "vitest --no-threads"
   },
@@ -41,6 +45,7 @@
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
+    "@vitest/coverage-c8": "^0.26.0",
     "esbuild": "^0.16.10",
     "eslint": "^8.30.0",
     "eslint-define-config": "^1.12.0",
